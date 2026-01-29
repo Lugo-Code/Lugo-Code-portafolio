@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lugo Code | Desarrollo de Soluciones Web</title>
+<meta name="description" content="Lugo Code - Desarrollador Web en San Cristóbal, RD. Especialista en sitios modernos, menús digitales interactivos y soluciones web para negocios.">
+<meta name="keywords" content="desarrollador web San Cristóbal, páginas web República Dominicana, Lugo Code, menús digitales, diseño web RD">
+<meta name="author" content="Lugo Code">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tu-dominio.com/"> <meta property="og:title" content="💻 Lugo Code | Desarrollo Web Profesional">
+<meta property="og:description" content="¿Quieres llevar tu negocio al siguiente nivel? Mira mis proyectos y solicita una cotización hoy mismo.">
+<meta property="og:image" content="https://tu-dominio.com/preview.jpg"> <link rel="icon" href="https://tu-dominio.com/favicon.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #8b5cf6;
+  --accent: #ec4899;
+  --dark: #0f172a;
+  --dark-light: #1e293b;
+  --light: #f8fafc;
+  --gray: #64748b;
+  --success: #10b981;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--dark);
+  color: var(--light);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 1.2rem 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.8rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--light);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
+  top: -200px;
+  right: -200px;
+  border-radius: 50%;
+  animation: float 20s infinite ease-in-out;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent);
+  bottom: -150px;
+  left: -150px;
+  border-radius: 50%;
+  animation: float 15s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+.hero-content {
+  max-width: 800px;
+  text-align: center;
+  z-index: 1;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  color: var(--primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.hero h1 .wave {
+  display: inline-block;
+  animation: wave 2s infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-20deg); }
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--light);
+  border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* SECTIONS */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--light), var(--gray));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: var(--gray);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ABOUT */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.about-text p {
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--dark-light);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary);
+  display: block;
+}
+
+.stat-label {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* TECH STACK */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tech-item {
+  background: var(--dark-light);
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.tech-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.tech-name {
+  font-weight: 600;
+  color: var(--light);
+  font-size: 0.9rem;
+}
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--dark-light);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+}
+
+.project-header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.project-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+.project-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.project-content {
+  padding: 2rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--light);
+}
+
+.project-subtitle {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.project-description {
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.project-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-tech {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+.project-tech strong {
+  color: var(--primary);
+}
+
+/* ============================================
+   🔥 NUEVO: BOTÓN DE DEMO
+   ============================================ */
+.btn-demo {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-demo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-demo:hover::before {
+  left: 100%;
+}
+
+.btn-demo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.6);
+}
+
+.btn-demo-icon {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Variante del botón para proyectos sin demo */
+.btn-coming-soon {
+  background: linear-gradient(135deg, #64748b, #475569);
+  cursor: not-allowed;
+  box-shadow: 0 8px 25px rgba(100, 116, 139, 0.3);
+}
+
+.btn-coming-soon:hover {
+  transform: none;
+  box-shadow: 0 8px 25px rgba(100, 116, 139, 0.3);
+}
+
+/* CONTACT */
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  background: var(--dark-light);
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+}
+
+.contact-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.contact-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--light);
+}
+
+.contact-card p {
+  color: var(--gray);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.contact-card a {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.contact-card a:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--dark-light);
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.social-link:hover {
+  background: var(--primary);
+  transform: translateY(-5px);
+}
+
+.footer-copy {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+  z-index: 999;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.8), 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(15, 23, 42, 0.98);
+    flex-direction: column;
+    padding: 2rem;
+    transition: left 0.3s ease;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="logo">💻 Lugo Code</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+      <li><a href="#sobre-mi" onclick="closeMenu()">Sobre Mí</a></li>
+      <li><a href="#proyectos" onclick="closeMenu()">Proyectos</a></li>
+      <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="hero-badge">👋 Disponible para proyectos</div>
+    <h1>Hola, soy <span class="wave">Lugo Code</span></h1>
+    <p>Desarrollador web especializado en crear soluciones digitales modernas, rápidas y funcionales. Transformo ideas en experiencias web claras, atractivas y fáciles de usar.</p>
+    <div class="hero-buttons">
+      <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+      <a href="#contacto" class="btn btn-outline">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section class="section" id="sobre-mi">
+  <div class="section-header">
+    <div class="section-badge">Sobre Mí</div>
+    <h2>¿Quién soy?</h2>
+    <p>Soy un desarrollador web de San Cristóbal, República Dominicana, enfocado en crear soluciones digitales para personas, marcas y proyectos que buscan una presencia web clara y efectiva.</p>
+  </div>
+
+  <div class="about-content">
+    <div class="about-text">
+      <h3>🚀 Mi Historia</h3>
+      <p>Me especializo en crear sitios web limpios, funcionales y optimizados para cualquier dispositivo. Cada proyecto lo desarrollo con atención al detalle, priorizando la usabilidad, el rendimiento y una experiencia clara para el usuario.</p>
+      <p>Mi objetivo es hacer que la tecnología web sea accesible y comprensible, adaptándola a las necesidades reales de cada proyecto, sin importar su escala o complejidad.</p>
+    </div>
+
+    <div class="about-stats">
+      <div class="stat-card">
+        <span class="stat-number">8+</span>
+        <span class="stat-label">Proyectos Completados</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Clientes Satisfechos</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">6+</span>
+        <span class="stat-label">Tecnologías</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Soporte</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top: 5rem;">
+    <div class="section-badge">Stack Tecnológico</div>
+    <h2>Tecnologías que uso</h2>
+  </div>
+
+  <div class="tech-grid">
+    <div class="tech-item">
+      <span class="tech-icon">🌐</span>
+      <div class="tech-name">HTML5</div>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🎨</span>
+      <div class="tech-name">CSS3</div>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">⚡</span>
+      <div class="tech-name">JavaScript</div>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">📱</span>
+      <div class="tech-name">Responsive</div>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🎭</span>
+      <div class="tech-name">Animations</div>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">💬</span>
+      <div class="tech-name">WhatsApp API</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section class="section" id="proyectos">
+  <div class="section-header">
+    <div class="section-badge">Portafolio</div>
+    <h2>Mis Proyectos</h2>
+    <p>Soluciones web diseñadas para resolver necesidades reales y ofrecer experiencias digitales efectivas</p>
+  </div>
+
+  <div class="projects-grid">
+    
+    <!-- ============================================
+         🔥 Proyecto 1: PÉREZ BURGER (CON DEMO)
+         ============================================ -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Popular</span>
+        <span class="project-icon">🍔</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Pérez Burger</h3>
+        <p class="project-subtitle"Plataforma Web Interactiva</p>
+        <p class="project-description">Sistema web estructurado para la gestión visual de grandes volúmenes de contenido, con múltiples categorías, controles dinámicos y un flujo de interacción optimizado.</p>
+        <div class="project-features">
+          <span class="feature-tag">Carrito de Compras</span>
+          <span class="feature-tag">WhatsApp</span>
+          <span class="feature-tag">100+ Productos</span>
+          <span class="feature-tag">Responsive</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3, JavaScript, Animaciones CSS
+        </div>
+        
+        <!-- 🎯 BOTÓN DE DEMO -->
+        <a href="https://perez-burguer.netlify.app/" target="_blank" class="btn-demo">
+          <span class="btn-demo-icon">🎯</span>
+          Ver Demo en Vivo
+        </a>
+      </div>
+    </div>
+
+    <!-- Proyecto 2 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Featured</span>
+        <span class="project-icon">🥗</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Pérez Green</h3>
+        <p class="project-subtitle">Sitio Web Visual & Experiencial</p>
+        <p class="project-description">Sitio web interactivo con enfoque visual moderno, animaciones dinámicas y elementos flotantes que mejoran la experiencia de navegación y la interacción del usuario.</p>
+        <div class="project-features">
+          <span class="feature-tag">Glassmorphism</span>
+          <span class="feature-tag">Carrito Flotante</span>
+          <span class="feature-tag">Animaciones</span>
+          <span class="feature-tag">UI Moderna</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3 Avanzado, JavaScript ES6
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         🔥 Proyecto 3: BROTHERS' BURGERS (CON DEMO)
+         ============================================ -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Fast Food</span>
+        <span class="project-icon">🍔</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Brothers' Burgers</h3>
+        <p class="project-subtitle">Sistema Web Personalizado</p>
+        <p class="project-description">Sistema web estructurado para la gestión visual de grandes volúmenes de contenido, con múltiples categorías, controles dinámicos y un flujo de interacción optimizado.</p>
+        <div class="project-features">
+          <span class="feature-tag">9 Categorías</span>
+          <span class="feature-tag">Filtros</span>
+          <span class="feature-tag">Control Cantidades</span>
+          <span class="feature-tag">Tema Premium</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3, JavaScript Vanilla
+        </div>
+        
+        <!-- 🎯 BOTÓN DE DEMO -->
+        <a href="https://demo-brother-burguers.netlify.app/" target="_blank" class="btn-demo">
+          <span class="btn-demo-icon">🎯</span>
+          Ver Demo en Vivo
+        </a>
+      </div>
+    </div>
+
+    <!-- Proyecto 4 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Template</span>
+        <span class="project-icon">🍕</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Fulano Food</h3>
+        <p class="project-subtitle">Plataforma Multi-categoría</p>
+        <p class="project-description">Template configurable de menú digital adaptable a cualquier tipo de restaurante con arquitectura modular.</p>
+        <div class="project-features">
+          <span class="feature-tag">Configurable</span>
+          <span class="feature-tag">Modular</span>
+          <span class="feature-tag">Escalable</span>
+          <span class="feature-tag">Flexible</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3, JavaScript (CONFIG)
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 5 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Corporativo</span>
+        <span class="project-icon">💼</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Landing Corporativa</h3>
+        <p class="project-subtitle">Sitio Web Institucional</p>
+        <p class="project-description">Página web profesional para negocios locales con secciones de servicios, horarios, ubicación y contacto múltiple.</p>
+        <div class="project-features">
+          <span class="feature-tag">One Page</span>
+          <span class="feature-tag">Google Maps</span>
+          <span class="feature-tag">Profesional</span>
+          <span class="feature-tag">Limpio</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3, Google Maps Embed
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 6 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Premium</span>
+        <span class="project-icon">🐾</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Clínica Veterinaria Ventura</h3>
+        <p class="project-subtitle">Sitio Web Profesional</p>
+        <p class="project-description">Plataforma web completa con navegación fluida, efectos de desplazamiento avanzados y una interfaz cuidada, enfocada en transmitir confianza y claridad visual.</p>
+        <div class="project-features">
+          <span class="feature-tag">Navbar Fijo</span>
+          <span class="feature-tag">Scroll Effects</span>
+          <span class="feature-tag">Profesional</span>
+          <span class="feature-tag">Multi-contacto</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3 Avanzado, JavaScript, Glassmorphism
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyecto 7 -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Simple</span>
+        <span class="project-icon">🍗</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Mario Pollo - Simple</h3>
+        <p class="project-subtitle">Página Web de Acceso Rápido</p>
+        <p class="project-description">Página web minimalista de acceso rápido, con estructura tipo hub y contenido presentado mediante modales, pensada para ofrecer información de forma directa y eficiente.</p>
+        <div class="project-features">
+          <span class="feature-tag">Minimalista</span>
+          <span class="feature-tag">Modal</span>
+          <span class="feature-tag">Rápido</span>
+          <span class="feature-tag">Efectivo</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3 puro, JavaScript Vanilla
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         🔥 Proyecto 8: MARÍA POLLO AVANZADA (CON DEMO)
+         ============================================ -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-badge">Completo</span>
+        <span class="project-icon">🍗</span>
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">Mario Pollo - Avanzada</h3>
+        <p class="project-subtitle">Sistema Web Interactivo Completo</p>
+        <p class="project-description">Evolución del sistema hacia una estructura más detallada y organizada, con elementos interactivos individuales y automatización de acciones para optimizar el flujo del usuario.</p>
+        <div class="project-features">
+          <span class="feature-tag">Menú Categorizado</span>
+          <span class="feature-tag">Pedido Individual</span>
+          <span class="feature-tag">Pre-llenado WA</span>
+          <span class="feature-tag">2 Modales</span>
+        </div>
+        <div class="project-tech">
+          <strong>Tech:</strong> HTML5, CSS3, JavaScript (Template Literals)
+        </div>
+        
+        <!-- 🎯 BOTÓN DE DEMO -->
+        <a href="https://lugo-code.github.io/Mar-a-Pollo/" target="_blank" class="btn-demo">
+          <span class="btn-demo-icon">🎯</span>
+          Ver Demo en Vivo
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section" id="contacto">
+  <div class="section-header">
+    <div class="section-badge">Contacto</div>
+    <h2>¿Hablamos?</h2>
+    <p>Estoy disponible para nuevos proyectos y colaboraciones</p>
+  </div>
+
+  <div class="contact-container">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="contact-icon">📧</span>
+        <h3>Email</h3>
+        <p>Respuesta en 24 horas</p>
+        <a href="mailto:lugocode.tech@gmail.com">Enviar Email</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">💬</span>
+        <h3>WhatsApp</h3>
+        <p>Respuesta inmediata</p>
+        <a href="https://wa.me/18096530608" target="_blank">Chatear Ahora</a>
+      </div>
+
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <h3>Ubicación</h3>
+        <p>San Cristóbal, RD</p>
+        <a href="https://maps.google.com/?q=San+Cristobal,+Republica+Dominicana" target="_blank">Ver en Mapa</a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--light);">¿Listo para llevar tu negocio al siguiente nivel?</h3>
+      <p style="color: var(--gray); margin-bottom: 2rem; font-size: 1.1rem;">Contáctame y hablemos sobre tu proyecto</p>
+      <a href="https://wa.me/18096530608?text=Hola%20Lugo%20Code,%20estoy%20interesado%20en%20un%20sitio%20web" class="btn btn-primary" target="_blank">
+        Solicitar Cotización
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">💻 Lugo Code</div>
+    <p style="color: var(--gray); margin-bottom: 1rem;">Desarrollo de Soluciones Web Modernas</p>
+    <p style="color: var(--gray); font-size: 0.9rem;">S.C, República Dominicana</p>
+
+    <div class="footer-social">
+      <a href="mailto:lugocode.tech@gmail.com" class="social-link" title="Email">📧</a>
+      <a href="https://wa.me/18096530608" class="social-link" target="_blank" title="WhatsApp">💬</a>
+      <a href="https://maps.google.com/?q=San+Cristobal,+Republica+Dominicana" class="social-link" target="_blank" title="Ubicación">📍</a>
+    </div>
+
+    <div class="footer-copy">
+      © 2026 Lugo Code. Todos los derechos reservados. | Hecho con 💜 en República Dominicana
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/18096530608?text=Hola%20Lugo%20Code,%20vi%20tu%20portafolio%20y%20me%20gustaría%20hablar%20contigo" class="whatsapp-float" target="_blank" title="Chatea conmigo">
+  💬
+</a>
+
+<script>
+// Navbar scroll effect
+let lastScroll = 0;
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  
+  lastScroll = currentScroll;
+});
+
+// Toggle mobile menu
+function toggleMenu() {
+  document.getElementById('navMenu').classList.toggle('active');
+}
+
+function closeMenu() {
+  document.getElementById('navMenu').classList.remove('active');
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Close mobile menu on click outside
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('navMenu');
+  const toggle = document.querySelector('.menu-toggle');
+  
+  if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+    menu.classList.remove('active');
+  }
+});
+
+// Animate on scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.project-card, .contact-card, .stat-card, .tech-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'all 0.6s ease';
+  observer.observe(el);
+});
+
+// Add stagger delay to project cards
+document.querySelectorAll('.project-card').forEach((card, index) => {
+  card.style.transitionDelay = `${index * 0.1}s`;
+});
+
+// Console message
+console.log('%c💻 Lugo Code', 'font-size: 24px; font-weight: bold; color: #6366f1;');
+console.log('%c¿Interesado en trabajar juntos? Contáctame!', 'font-size: 14px; color: #8b5cf6;');
+console.log('%cWhatsApp: +1 809 653 0608', 'font-size: 12px; color: #10b981;');
+console.log('%cEmail: lugocode.tech@gmail.com', 'font-size: 12px; color: #10b981;');
+</script>
+
+</body>
+</html>
